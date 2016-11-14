@@ -9,6 +9,8 @@
   margin-left: .5em;
 }
 
-a .brand-logo {
-  color: rgb(255, 210, 92);
+a.brand-logo {
+  /*color: rgb(255, 210, 92);*/
+  color: rgb(246, 181, 43);
+  font-family: 'Acme', sans-serif;
 }
