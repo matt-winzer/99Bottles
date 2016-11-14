@@ -8,7 +8,11 @@ $(document).ready(function() {
 });
 
 function appendStyles(styleData) {
-  console.log(styleData);
+  console.log(styleData.data.length);
   console.log(styleData.data[0].name);
-  
+
+  for (var i = 0; i < styleData.data.length; i++) {
+    $('#beerType').append('<option value="' + (4 + i) + '">' + styleData.data[i].name + '</option>');
+  }
+  $('select').material_select();
 }
