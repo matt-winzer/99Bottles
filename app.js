@@ -16,7 +16,7 @@ $(document).ready(function() {
 function appendStyles(styleData) {
   //Iterate through styleData object from GET request
   for (var i = 0; i < styleData.data.length; i++) {
-    $('#beerType').append('<option value="' + styleData.data[i].name + '">' + styleData.data[i].name + '</option>');
+    $('#beerType').append('<option value="' + i + '">' + styleData.data[i].name + '</option>');
   }
   //Re-initialize Select
   $('select').material_select();
@@ -25,10 +25,17 @@ function appendStyles(styleData) {
 
 
   function addStyleCard() {
+    var index = $(this).val();
     console.log($(this).val());
 
     $('#styleCard').append(
-      '<div class="col s12 m7"><h2 class="header">Horizontal Card</h2><div class="card horizontal"><div class="card-image"><img src="http://lorempixel.com/100/190/nature/6"></div><div class="card-stacked"><div class="card-content"><p>I am a very simple card. I am good at containing small bits of information.</p></div><div class="card-action"><a href="#">This is a link</a></div></div></div></div>');
+      '<div class="col s12">' +
+      '<h2 class="header">' + styleData.data[index].name + '</h2>' +
+      '<div class="card horizontal"><div class="card-image">' +
+      '<img src="http://lorempixel.com/100/190/nature/6"></div>' +
+      '<div class="card-stacked"><div class="card-content">' +
+      '<p>' + styleData.data[index].description + '</p>' +
+      '</div><div class="card-action"><a href="#">This is a link</a></div></div></div></div>');
 
   }
 }
