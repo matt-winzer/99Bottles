@@ -1,0 +1,14 @@
+/*.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}*/
+
+.beer-logo {
+  max-height: 80%;
+  margin-left: .5em;
+}
+
+a .brand-logo {
+  color: rgb(255, 210, 92);
+}
