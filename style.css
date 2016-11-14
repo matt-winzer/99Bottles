@@ -3,6 +3,9 @@
   align-items: center;
   justify-content: center;
 }*/
+nav {
+    height: 9vh;
+}
 
 .beer-logo {
   max-height: 80%;
@@ -15,4 +18,13 @@ a.brand-logo {
   color: rgb(246, 181, 43);
   font-family: 'Acme', sans-serif;
   font-size: 2.5em;
+}
+
+nav ul li a:hover {
+  /*background-color: #424242;*/
+  color: rgb(246, 181, 43);
+}
+
+nav ul li a.activated {
+  color: rgb(246, 181, 43);
 }
