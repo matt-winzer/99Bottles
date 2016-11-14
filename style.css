@@ -1,14 +1,14 @@
 .beer-logo {
   max-height: 80%;
   margin-left: .4em;
-  margin-top: .4em;;
+  margin-top: .4em;
+  ;
 }
 
 a.brand-logo {
   color: rgb(246, 181, 43);
   font-family: 'Acme', sans-serif;
   font-size: 2.5em;
-
 }
 
 nav {
@@ -21,4 +21,12 @@ nav ul li a:hover {
 
 nav ul li a.activated {
   color: rgb(246, 181, 43);
+}
+
+.abvRange {
+  float: left;
+}
+
+.ibuRange {
+  float: right;
 }

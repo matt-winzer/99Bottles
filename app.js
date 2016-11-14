@@ -34,8 +34,11 @@ function appendStyles(styleData) {
       '<div class="card horizontal"><div class="card-image">' +
       '<img src="http://lorempixel.com/100/190/nature/6"></div>' +
       '<div class="card-stacked"><div class="card-content">' +
-      '<p>' + styleData.data[index].description + '</p>' +
-      '</div><div class="card-action"><a href="#">This is a link</a></div></div></div></div>');
+      '<p>' + styleData.data[index].description + '</p></div>' +
+      '<div class="card-action"><p class="abv-range">ABV: ' + styleData.data[index].abvMin + ' - ' + styleData.data[index].abvMax + '%</p>' +
+      '<p class="ibuRange">IBUs: ' + styleData.data[index].ibuMin + ' - ' + styleData.data[index].ibuMax + '</p></div>' +
+      '</div></div></div>'
+    );
 
   }
 }
