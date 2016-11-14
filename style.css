@@ -11,6 +11,10 @@ a.brand-logo {
 
 }
 
+nav {
+  margin-bottom: 2em;
+}
+
 nav ul li a:hover {
   color: rgb(246, 181, 43);
 }
