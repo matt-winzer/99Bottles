@@ -34,18 +34,23 @@ function appendStyles(styleData) {
     //Append new content to #styleCard
     $('#styleCard').append(
       '<div class="col s12">' +
-      '<h2 class="header">' + styleData.data[index].name + '</h2>' +
-      '<div class="card horizontal">' +
-      // '<div class="card-image">' +
-      // '<img src="http://lorempixel.com/100/190/nature/6"></div>' +
-      '<div class="card-stacked"><div class="card-content">' +
-      '<p>' + styleData.data[index].description + '</p></div>' +
-      '<div id="styleCardInfo" class="card-action grey darken-4"><div class="valign-wrapper infoGroup">' +
-      '<img class="alcohol-image" src="img/wine-bottle-orange.png" alt="alcohol"/>' +
-      '<p class="abv-range">ABV: ' + styleData.data[index].abvMin + ' - ' + styleData.data[index].abvMax + '%</p>' +
-      '<img class="hops-image" src="img/Hops-52-Orange.png" alt="hops"/>' +
-      '<p class="ibu-range">IBUs: ' + styleData.data[index].ibuMin + ' - ' + styleData.data[index].ibuMax + '</p>' +
-      '</div></div></div></div></div>'
+        '<h2 class="header">' + styleData.data[index].name + '</h2>' +
+        '<div class="card horizontal">' +
+          '<div class="card-stacked">' +
+            '<div class="card-content">' +
+              '<p>' + styleData.data[index].description + '</p>' +
+            '</div>' +
+            '<div id="styleCardInfo" class="card-action grey darken-4">' +
+              '<div class="valign-wrapper infoGroup">' +
+                '<img class="alcohol-image" src="img/wine-bottle-orange.png" alt="alcohol"/>' +
+                '<p class="abv-range">ABV: ' + styleData.data[index].abvMin + ' - ' + styleData.data[index].abvMax + '%</p>' +
+                '<img class="hops-image" src="img/Hops-52-Orange.png" alt="hops"/>' +
+                '<p class="ibu-range">IBUs: ' + styleData.data[index].ibuMin + ' - ' + styleData.data[index].ibuMax + '</p>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
     );
 
     // GET request for beer data based on value of select
