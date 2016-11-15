@@ -29,6 +29,8 @@ function appendStyles(styleData) {
     var beerUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y';
     // Remove previous content from #styleCard
     $('#styleCard').empty();
+    // Remove previous content from #beerCards
+    $('#beerCards').empty();
     //Append new content to #styleCard
     $('#styleCard').append(
       '<div class="col s12">' +
@@ -54,5 +56,27 @@ function appendStyles(styleData) {
 function addBeerCards(beerData) {
   console.log(beerData);
   console.log(beerData.data.length);
+
+  for (var i = 0; i < beerData.data.length; i++) {
+    var img = beerData.data[i].labels.medium;
+
+    $('#beerCards').append(
+      '<div class="col s6 m3">' +
+          '<div class="card">' +
+            '<div class="card-image">' +
+              '<img src="' + img + '">' +
+              '<span class="card-title">Card Title</span>' +
+            '</div>' +
+            '<div class="card-content">' +
+              '<p>I am a very simple card. I am good at containing small bits of information.' +
+              'I am convenient because I require little markup to use effectively.</p>' +
+            '</div>' +
+            '<div class="card-action">' +
+              '<a href="#">This is a link</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>'
+    );
+  }
 
 }
