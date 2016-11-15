@@ -37,7 +37,7 @@ function appendStyles(styleData) {
     //Append new content to #styleCard
     $('#styleCard').append(
       '<div class="col s12">' +
-        '<h2 class="header center-align">' + name + '</h2>' +
+        '<h2 class="header">' + name + '</h2>' +
         '<div class="card horizontal">' +
           '<div class="card-stacked">' +
             '<div class="card-content">' +
@@ -74,10 +74,16 @@ function addBeerCards(beerData) {
         '<div class="card beer-card hoverable">' +
           '<div class="card-image">' +
             '<img src="' + img + '">' +
+            // '<span class="card-title">Card Title</span>' +
           '</div>' +
+          // '<div class="card-content">' +
+          //   '<p>' + name + '</p>' +
+          // '</div>' +
+          // '<div class="beer-name-container">' +
             '<div class="beer-name-container card-action grey darken-4">' +
               '<p class="beer-name center-align truncate">' + name + '</p>' +
             '</div>' +
+          // '</div>' +
         '</div>' +
       '</div>'
     );
