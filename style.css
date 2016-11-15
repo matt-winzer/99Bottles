@@ -23,6 +23,14 @@ nav ul li a.activated {
   color: rgb(246, 181, 43);
 }
 
+p.instructions-footer {
+  margin: 1em;
+  padding: 1em;
+  font-weight: bold;
+  font-size: 1.25em;
+  color: rgb(246, 181, 43);
+}
+
 p.abv-range {
   /*float: right;*/
   font-weight: bold;
