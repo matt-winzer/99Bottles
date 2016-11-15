@@ -54,3 +54,7 @@ img.alcohol-image {
   margin-left: 1em;
   margin-right: 1em;
 }
+
+#styleCardInfo {
+  padding: 0;
+}
