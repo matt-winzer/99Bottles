@@ -53,6 +53,6 @@ function appendStyles(styleData) {
 
 function addBeerCards(beerData) {
   console.log(beerData);
-  
+  console.log(beerData.data.length);
 
 }
