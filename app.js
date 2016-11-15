@@ -23,11 +23,13 @@ function appendStyles(styleData) {
   //On select change, append card with style info
   $('#beerType').change(addStyleCard);
 
-
   function addStyleCard() {
     var index = $(this).val();
-    // console.log($(this).val());
-
+    var styleId = parseInt(index) + 1;
+    var beerUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y';
+    // Remove previous content from #styleCard
+    $('#styleCard').empty();
+    //Append new content to #styleCard
     $('#styleCard').append(
       '<div class="col s12">' +
       '<h2 class="header">' + styleData.data[index].name + '</h2>' +
@@ -44,5 +46,13 @@ function appendStyles(styleData) {
       '</div></div></div></div></div>'
     );
 
+    // GET request for beer data based on value of select
+    $.get(beerUrl, addBeerCards);
   }
+}
+
+function addBeerCards(beerData) {
+  console.log(beerData);
+  
+
 }
