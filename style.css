@@ -65,6 +65,12 @@ h2.header {
 }
 
 div.card.beer-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div.card.beer-card {
   min-height: 300px;
 }
 
@@ -72,16 +78,6 @@ div.beer-name-container.card-action.grey.darken-4 {
   padding: 1em;
 }
 
-div.beer-card-container {
-  display: flex;
-  flex-direction: column;
-}
-
-div.beer-name {
-  align-self: flex-end;
-}
-
 p.beer-name {
   margin: 0;
-  /*padding: 1em;*/
 }

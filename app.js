@@ -81,7 +81,7 @@ function addBeerCards(beerData) {
           // '</div>' +
           // '<div class="beer-name-container">' +
             '<div class="beer-name-container card-action grey darken-4">' +
-              '<p class="beer-name center-align">' + name + '</p>' +
+              '<p class="beer-name center-align truncate">' + name + '</p>' +
             '</div>' +
           // '</div>' +
         '</div>' +
