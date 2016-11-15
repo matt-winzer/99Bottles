@@ -14,6 +14,7 @@ $(document).ready(function() {
 });
 
 function appendStyles(styleData) {
+  console.log(styleData);
   //Iterate through styleData object from GET request
   for (var i = 0; i < styleData.data.length; i++) {
     $('#beerType').append('<option value="' + i + '">' + styleData.data[i].name + '</option>');
@@ -25,6 +26,12 @@ function appendStyles(styleData) {
 
   function addStyleCard() {
     var index = $(this).val();
+    var name = styleData.data[index].name;
+    var description = styleData.data[index].description;
+    var abvMin = styleData.data[index].abvMin;
+    var abvMax = styleData.data[index].abvMax;
+    var ibuMin = styleData.data[index].ibuMin;
+    var ibuMax = styleData.data[index].ibuMax;
     var styleId = parseInt(index) + 1;
     var beerUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y';
     // Remove previous content from #styleCard
@@ -34,25 +41,24 @@ function appendStyles(styleData) {
     //Append new content to #styleCard
     $('#styleCard').append(
       '<div class="col s12">' +
-        '<h2 class="header">' + styleData.data[index].name + '</h2>' +
+        '<h2 class="header">' + name + '</h2>' +
         '<div class="card horizontal">' +
           '<div class="card-stacked">' +
             '<div class="card-content">' +
-              '<p>' + styleData.data[index].description + '</p>' +
+              '<p>' + description + '</p>' +
             '</div>' +
             '<div id="styleCardInfo" class="card-action grey darken-4">' +
               '<div class="valign-wrapper infoGroup">' +
                 '<img class="alcohol-image" src="img/wine-bottle-orange.png" alt="alcohol"/>' +
-                '<p class="abv-range">ABV: ' + styleData.data[index].abvMin + ' - ' + styleData.data[index].abvMax + '%</p>' +
+                '<p class="abv-range">ABV: ' + abvMin + ' - ' + abvMax + '%</p>' +
                 '<img class="hops-image" src="img/Hops-52-Orange.png" alt="hops"/>' +
-                '<p class="ibu-range">IBUs: ' + styleData.data[index].ibuMin + ' - ' + styleData.data[index].ibuMax + '</p>' +
+                '<p class="ibu-range">IBUs: ' + ibuMin + ' - ' + ibuMax + '</p>' +
               '</div>' +
             '</div>' +
           '</div>' +
         '</div>' +
       '</div>'
     );
-
     // GET request for beer data based on value of select
     $.get(beerUrl, addBeerCards);
   }
