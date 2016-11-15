@@ -59,23 +59,24 @@ function addBeerCards(beerData) {
 
   for (var i = 0; i < beerData.data.length; i++) {
     var img = beerData.data[i].labels.medium;
+    var name = beerData.data[i].name;
+    var description = beerData.data[i].description;
 
     $('#beerCards').append(
       '<div class="col s6 m3">' +
-          '<div class="card">' +
-            '<div class="card-image">' +
-              '<img src="' + img + '">' +
-              '<span class="card-title">Card Title</span>' +
-            '</div>' +
-            '<div class="card-content">' +
-              '<p>I am a very simple card. I am good at containing small bits of information.' +
-              'I am convenient because I require little markup to use effectively.</p>' +
-            '</div>' +
-            '<div class="card-action">' +
-              '<a href="#">This is a link</a>' +
-            '</div>' +
+        '<div class="card">' +
+          '<div class="card-image">' +
+            '<img src="' + img + '">' +
+            // '<span class="card-title">Card Title</span>' +
           '</div>' +
-        '</div>'
+          '<div class="card-content">' +
+            '<p>' + name + '</p>' +
+          '</div>' +
+          '<div class="card-action">' +
+            '<a href="#">This is a link</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
     );
   }
 
