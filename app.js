@@ -74,16 +74,10 @@ function addBeerCards(beerData) {
         '<div class="card beer-card hoverable">' +
           '<div class="card-image">' +
             '<img src="' + img + '">' +
-            // '<span class="card-title">Card Title</span>' +
           '</div>' +
-          // '<div class="card-content">' +
-          //   '<p>' + name + '</p>' +
-          // '</div>' +
-          // '<div class="beer-name-container">' +
             '<div class="beer-name-container card-action grey darken-4">' +
               '<p class="beer-name center-align truncate">' + name + '</p>' +
             '</div>' +
-          // '</div>' +
         '</div>' +
       '</div>'
     );
