@@ -71,7 +71,7 @@ function addBeerCards(beerData) {
 
     $('#beerCards').append(
       '<div class="beer-card-container col s6 m4 l3">' +
-        '<div class="card beer-card">' +
+        '<div class="card beer-card hoverable">' +
           '<div class="card-image">' +
             '<img src="' + img + '">' +
             // '<span class="card-title">Card Title</span>' +
