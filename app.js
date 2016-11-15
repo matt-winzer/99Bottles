@@ -26,17 +26,18 @@ function appendStyles(styleData) {
 
   function addStyleCard() {
     var index = $(this).val();
-    console.log($(this).val());
+    // console.log($(this).val());
 
     $('#styleCard').append(
       '<div class="col s12">' +
       '<h2 class="header">' + styleData.data[index].name + '</h2>' +
-      '<div class="card horizontal"><div class="card-image">' +
-      '<img src="http://lorempixel.com/100/190/nature/6"></div>' +
+      '<div class="card horizontal">' +
+      // '<div class="card-image">' +
+      // '<img src="http://lorempixel.com/100/190/nature/6"></div>' +
       '<div class="card-stacked"><div class="card-content">' +
       '<p>' + styleData.data[index].description + '</p></div>' +
-      '<div class="card-action"><p class="abv-range">ABV: ' + styleData.data[index].abvMin + ' - ' + styleData.data[index].abvMax + '%</p>' +
-      '<p class="ibuRange">IBUs: ' + styleData.data[index].ibuMin + ' - ' + styleData.data[index].ibuMax + '</p></div>' +
+      '<div class="card-action grey darken-4"><p class="abv-range">ABV: ' + styleData.data[index].abvMin + ' - ' + styleData.data[index].abvMax + '%</p>' +
+      '<p class="ibu-range">IBUs: ' + styleData.data[index].ibuMin + ' - ' + styleData.data[index].ibuMax + '</p></div>' +
       '</div></div></div>'
     );
 
