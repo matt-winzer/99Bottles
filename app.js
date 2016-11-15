@@ -63,30 +63,38 @@ function appendStyles(styleData) {
 function addBeerCards(beerData) {
   console.log(beerData);
   console.log(beerData.data.length);
+  console.log(beerData.data.totalResults);
 
+  if (beerData.data.totalResults > 1) {
+
+  }
   for (var i = 0; i < beerData.data.length; i++) {
     var img = beerData.data[i].labels.medium;
     var name = beerData.data[i].name;
     var description = beerData.data[i].description;
 
-    $('#beerCards').append(
-      '<div class="beer-card-container col s6 m4 l3">' +
-        '<div class="card beer-card hoverable">' +
-          '<div class="card-image">' +
-            '<img src="' + img + '">' +
-            // '<span class="card-title">Card Title</span>' +
-          '</div>' +
-          // '<div class="card-content">' +
-          //   '<p>' + name + '</p>' +
-          // '</div>' +
-          // '<div class="beer-name-container">' +
-            '<div class="beer-name-container card-action grey darken-4">' +
-              '<p class="beer-name center-align truncate">' + name + '</p>' +
-            '</div>' +
-          // '</div>' +
-        '</div>' +
-      '</div>'
-    );
+    appendBeers(img, name);
   }
 
+}
+
+function appendBeers(beerImage, beerName) {
+  $('#beerCards').append(
+    '<div class="beer-card-container col s6 m4 l3">' +
+      '<div class="card beer-card hoverable">' +
+        '<div class="card-image">' +
+          '<img src="' + beerImage + '">' +
+          // '<span class="card-title">Card Title</span>' +
+        '</div>' +
+        // '<div class="card-content">' +
+        //   '<p>' + name + '</p>' +
+        // '</div>' +
+        // '<div class="beer-name-container">' +
+          '<div class="beer-name-container card-action grey darken-4">' +
+            '<p class="beer-name center-align truncate">' + beerName + '</p>' +
+          '</div>' +
+        // '</div>' +
+      '</div>' +
+    '</div>'
+  );
 }
