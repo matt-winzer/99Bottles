@@ -37,7 +37,7 @@ function appendStyles(styleData) {
     //Append new content to #styleCard
     $('#styleCard').append(
       '<div class="col s12">' +
-        '<h2 class="header">' + name + '</h2>' +
+        '<h2 class="header center-align">' + name + '</h2>' +
         '<div class="card horizontal">' +
           '<div class="card-stacked">' +
             '<div class="card-content">' +
@@ -63,18 +63,20 @@ function appendStyles(styleData) {
 function addBeerCards(beerData) {
   console.log(beerData);
   console.log(beerData.data.length);
-  console.log(beerData.data.totalResults);
+  console.log(beerData.numberOfPages);
 
-  if (beerData.data.totalResults > 1) {
-
-  }
   for (var i = 0; i < beerData.data.length; i++) {
     var img = beerData.data[i].labels.medium;
     var name = beerData.data[i].name;
     var description = beerData.data[i].description;
-
     appendBeers(img, name);
   }
+
+  // if (beerData.numberOfPages > 1) {
+  //   for (var j = 2; j < beerData.numberOfPages; j++) {
+  //     array[i]
+  //   }
+  // }
 
 }
 
