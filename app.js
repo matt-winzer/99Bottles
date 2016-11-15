@@ -8,13 +8,9 @@ $(document).ready(function() {
   //GET request for beer styles
   $.get(styleURL, appendStyles);
 
-  //Event listener for Select change
-
-
 });
 
 function appendStyles(styleData) {
-  console.log(styleData);
   //Iterate through styleData object from GET request
   for (var i = 0; i < styleData.data.length; i++) {
     $('#beerType').append('<option value="' + i + '">' + styleData.data[i].name + '</option>');
@@ -47,7 +43,7 @@ function appendStyles(styleData) {
             '<div class="card-content">' +
               '<p>' + description + '</p>' +
             '</div>' +
-            '<div id="styleCardInfo" class="card-action grey darken-4">' +
+            '<div class="card-action grey darken-4">' +
               '<div class="valign-wrapper infoGroup">' +
                 '<img class="alcohol-image" src="img/wine-bottle-orange.png" alt="alcohol"/>' +
                 '<p class="abv-range">ABV: ' + abvMin + ' - ' + abvMax + '%</p>' +
@@ -74,18 +70,20 @@ function addBeerCards(beerData) {
     var description = beerData.data[i].description;
 
     $('#beerCards').append(
-      '<div class="col s6 m3">' +
-        '<div class="card small">' +
+      '<div class="beer-card-container col s6 m4 l3">' +
+        '<div class="card beer-card">' +
           '<div class="card-image">' +
             '<img src="' + img + '">' +
             // '<span class="card-title">Card Title</span>' +
           '</div>' +
-          '<div class="card-content">' +
-            '<p>' + name + '</p>' +
-          '</div>' +
-          '<div class="card-action">' +
-            '<a href="#">This is a link</a>' +
-          '</div>' +
+          // '<div class="card-content">' +
+          //   '<p>' + name + '</p>' +
+          // '</div>' +
+          // '<div class="beer-name-container">' +
+            '<div class="beer-name-container card-action grey darken-4">' +
+              '<p class="beer-name center-align">' + name + '</p>' +
+            '</div>' +
+          // '</div>' +
         '</div>' +
       '</div>'
     );

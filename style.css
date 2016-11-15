@@ -55,10 +55,33 @@ img.alcohol-image {
   margin-right: 1em;
 }
 
-#styleCardInfo {
+div.card-action.grey.darken-4 {
   padding: 0;
+  margin-bottom: 0;
 }
 
 h2.header {
   font-family: 'Acme', sans-serif;
+}
+
+div.card.beer-card {
+  min-height: 300px;
+}
+
+div.beer-name-container.card-action.grey.darken-4 {
+  padding: 1em;
+}
+
+div.beer-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+div.beer-name {
+  align-self: flex-end;
+}
+
+p.beer-name {
+  margin: 0;
+  /*padding: 1em;*/
 }
