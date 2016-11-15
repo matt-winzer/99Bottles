@@ -58,3 +58,7 @@ img.alcohol-image {
 #styleCardInfo {
   padding: 0;
 }
+
+h2.header {
+  font-family: 'Acme', sans-serif;
+}
