@@ -83,7 +83,11 @@ function triggerModal() {
 }
 
 function populateModal(beerIdData) {
-  $('');
+  console.log(beerIdData);
+  var beerName = beerIdData.data.name;
+  var beerDescription = beerIdData.data.description;
+  $('.modal-header').text(beerName);
+  $('.modal-description').text(beerDescription);
 }
 
 function addBeerCards(beerData) {
