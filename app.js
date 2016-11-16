@@ -65,30 +65,30 @@ function appendStyles(styleData) {
             $.get(newUrl, addBeerCards);
           }
         }
-      })
-      .then(function(){
-        var $beerCards = $('.beer-card-container');
-        // console.log($beerCards.html());
-        $beerCards.click(triggerModal);
       });
+      // .then(function(){
+      //   var $beerCards = $('.beer-card-container');
+      //   // console.log($beerCards.html());
+      //   $beerCards.click(triggerModal);
+      // });
   }
 }
 
-function triggerModal() {
-  console.log('Modal Trigger');
-  console.log(this.id);
-  var beerId = this.id;
-  var beerIdUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beer/' + beerId + '/?key=53f372495b64d9d4e9a86e2a8ca999b4';
-  $.get(beerIdUrl, populateModal);
-}
-
-function populateModal(beerIdData) {
-  console.log(beerIdData);
-  var beerName = beerIdData.data.name;
-  var beerDescription = beerIdData.data.description;
-  $('.modal-header').text(beerName);
-  $('.modal-description').text(beerDescription);
-}
+// function triggerModal() {
+//   console.log('Modal Trigger');
+//   console.log(this.id);
+//   var beerId = this.id;
+//   var beerIdUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beer/' + beerId + '/?key=53f372495b64d9d4e9a86e2a8ca999b4';
+//   $.get(beerIdUrl, populateModal);
+// }
+//
+// function populateModal(beerIdData) {
+//   console.log(beerIdData);
+//   var beerName = beerIdData.data.name;
+//   var beerDescription = beerIdData.data.description;
+//   $('.modal-header').text(beerName);
+//   $('.modal-description').text(beerDescription);
+// }
 
 function addBeerCards(beerData) {
   // console.log(beerData);
@@ -97,23 +97,31 @@ function addBeerCards(beerData) {
   // console.log('Current Page: ' + beerData.currentPage);
 
   for (var i = 0; i < beerData.data.length; i++) {
-    var img = beerData.data[i].labels.medium;
+    var img = beerData.data[i].labels.large;
     var name = beerData.data[i].name;
     var id = beerData.data[i].id;
-    appendBeers(img, name, id);
+    var description = beerData.data[i].description;
+    if (description === undefined) {
+
+    }
+    appendBeers(img, name, id, description);
   }
   return beerData;
 }
 
-function appendBeers(beerImage, beerName, beerId) {
+function appendBeers(beerImage, beerName, beerId, beerDescription) {
   $('#beerCards').append(
-    '<div id="' + beerId +'" class="beer-card-container col s6 m4 l3">' +
+    '<div id="' + beerId +'" class="beer-card-container col s12 m6 l4">' +
       '<div class="card beer-card hoverable">' +
         '<div class="card-image">' +
-          '<img src="' + beerImage + '">' +
+          '<img class="activator" src="' + beerImage + '">' +
         '</div>' +
           '<div class="beer-name-container card-action grey darken-4">' +
             '<p class="beer-name center-align truncate">' + beerName + '</p>' +
+          '</div>' +
+          '<div class="card-reveal">' +
+            '<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>' +
+            '<p>' + beerDescription + '</p>' +
           '</div>' +
       '</div>' +
     '</div>'
