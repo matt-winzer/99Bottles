@@ -65,15 +65,32 @@ function appendStyles(styleData) {
             $.get(newUrl, addBeerCards);
           }
         }
+      })
+      .then(function(){
+        var $beerCards = $('.beer-card-container');
+        // console.log($beerCards.html());
+        $beerCards.click(triggerModal);
       });
   }
 }
 
+function triggerModal() {
+  console.log('Modal Trigger');
+  console.log(this.id);
+  var beerId = this.id;
+  var beerIdUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beer/' + beerId + '/?key=53f372495b64d9d4e9a86e2a8ca999b4';
+  $.get(beerIdUrl, populateModal);
+}
+
+function populateModal(beerIdData) {
+  $('');
+}
+
 function addBeerCards(beerData) {
-  console.log(beerData);
-  console.log(beerData.data.length);
-  console.log('Number of pages: ' + beerData.numberOfPages);
-  console.log('Current Page: ' + beerData.currentPage);
+  // console.log(beerData);
+  // console.log(beerData.data.length);
+  // console.log('Number of pages: ' + beerData.numberOfPages);
+  // console.log('Current Page: ' + beerData.currentPage);
 
   for (var i = 0; i < beerData.data.length; i++) {
     var img = beerData.data[i].labels.medium;
