@@ -56,29 +56,33 @@ function appendStyles(styleData) {
       '</div>'
     );
     // GET request for beer data based on value of select
-    $.get(beerUrl, addBeerCards);
+    $.get(beerUrl, addBeerCards)
+      .then(function(beerData) {
+        // console.log('.then chain is working');
+        // console.log(beerData);
+        if (beerData.numberOfPages > 1) {
+          for (var j = 2; j <= beerData.numberOfPages; j++) {
+            var newUrl = beerUrl + '&p=' + j;
+            $.get(newUrl, addBeerCards);
+          }
+        }
+      });
   }
 }
 
 function addBeerCards(beerData) {
   console.log(beerData);
   console.log(beerData.data.length);
-  console.log(beerData.numberOfPages);
+  console.log('Number of pages: ' + beerData.numberOfPages);
+  console.log('Current Page: ' + beerData.currentPage);
 
   for (var i = 0; i < beerData.data.length; i++) {
     var img = beerData.data[i].labels.medium;
     var name = beerData.data[i].name;
     var id = beerData.data[i].id;
-    var description = beerData.data[i].description;
     appendBeers(img, name, id);
   }
-
-  // if (beerData.numberOfPages > 1) {
-  //   for (var j = 2; j < beerData.numberOfPages; j++) {
-  //     array[i]
-  //   }
-  // }
-
+  return beerData;
 }
 
 function appendBeers(beerImage, beerName, beerId) {
@@ -101,3 +105,22 @@ function appendBeers(beerImage, beerName, beerId) {
     '</div>'
   );
 }
+
+
+
+// var url = "http://www.omdbapi.com/?s=300"
+// $.get(url)
+//   .then(function (movieList) {
+//     console.log(movieList)
+//     // return $.get("http://www.omdbapi.com/?t=" + movieList.Search[0].Title)
+//     return movieList.Search[0].Title
+//   })
+//   .then(function (title) {
+//     return $.get("http://www.omdbapi.com/?t=" + title)
+//   })
+//   .then(function (details) {
+//     console.log(details);
+//   })
+//   .catch(function (err) {
+//     console.log(err);
+//   })
