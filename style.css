@@ -23,6 +23,11 @@ nav ul li a.activated {
   color: rgb(246, 181, 43);
 }
 
+body {
+  background-color: #e0e0e0;
+  /*background-color: #eeeeee;*/
+  /*background: #f5f5f5;*/
+}
 
 .dropdown-content li span {
   color: #212121;
