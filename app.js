@@ -68,8 +68,9 @@ function addBeerCards(beerData) {
   for (var i = 0; i < beerData.data.length; i++) {
     var img = beerData.data[i].labels.medium;
     var name = beerData.data[i].name;
+    var id = beerData.data[i].id;
     var description = beerData.data[i].description;
-    appendBeers(img, name);
+    appendBeers(img, name, id);
   }
 
   // if (beerData.numberOfPages > 1) {
@@ -80,9 +81,9 @@ function addBeerCards(beerData) {
 
 }
 
-function appendBeers(beerImage, beerName) {
+function appendBeers(beerImage, beerName, beerId) {
   $('#beerCards').append(
-    '<div class="beer-card-container col s6 m4 l3">' +
+    '<div id="' + beerId +'" class="beer-card-container col s6 m4 l3">' +
       '<div class="card beer-card hoverable">' +
         '<div class="card-image">' +
           '<img src="' + beerImage + '">' +
