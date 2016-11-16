@@ -1,13 +1,12 @@
 $(document).ready(function() {
   //Initialize Select
   $('select').material_select();
-
+  // Initialize modal
+  $('.modal').modal();
   //Store URL for styles GET request
   var styleURL = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/styles/?key=53f372495b64d9d4e9a86e2a8ca999b4';
-
   //GET request for beer styles
   $.get(styleURL, appendStyles);
-
 });
 
 function appendStyles(styleData) {
@@ -91,36 +90,11 @@ function appendBeers(beerImage, beerName, beerId) {
       '<div class="card beer-card hoverable">' +
         '<div class="card-image">' +
           '<img src="' + beerImage + '">' +
-          // '<span class="card-title">Card Title</span>' +
         '</div>' +
-        // '<div class="card-content">' +
-        //   '<p>' + name + '</p>' +
-        // '</div>' +
-        // '<div class="beer-name-container">' +
           '<div class="beer-name-container card-action grey darken-4">' +
             '<p class="beer-name center-align truncate">' + beerName + '</p>' +
           '</div>' +
-        // '</div>' +
       '</div>' +
     '</div>'
   );
 }
-
-
-
-// var url = "http://www.omdbapi.com/?s=300"
-// $.get(url)
-//   .then(function (movieList) {
-//     console.log(movieList)
-//     // return $.get("http://www.omdbapi.com/?t=" + movieList.Search[0].Title)
-//     return movieList.Search[0].Title
-//   })
-//   .then(function (title) {
-//     return $.get("http://www.omdbapi.com/?t=" + title)
-//   })
-//   .then(function (details) {
-//     console.log(details);
-//   })
-//   .catch(function (err) {
-//     console.log(err);
-//   })
