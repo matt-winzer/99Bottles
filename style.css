@@ -23,9 +23,14 @@ nav ul li a.activated {
   color: rgb(246, 181, 43);
 }
 
+
+.dropdown-content li span {
+  color: #212121;
+}
+
 p.instructions-footer {
-  margin: 1em;
-  padding: 1em;
+  margin: 0;
+  padding: 1.5em;
   font-weight: bold;
   font-size: 1.25em;
   color: rgb(246, 181, 43);
