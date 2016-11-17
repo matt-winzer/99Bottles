@@ -24,9 +24,15 @@ function appendStyles(styleData) {
     var abvMin = styleData.data[index].abvMin;
     var abvMax = styleData.data[index].abvMax;
     var abvRange = abvMin + ' - ' + abvMax;
+    if (abvMin === undefined || abvMax === undefined) {
+      abvRange = 'N/A';
+    }
     var ibuMin = styleData.data[index].ibuMin;
     var ibuMax = styleData.data[index].ibuMax;
     var ibuRange = ibuMin + ' - ' + ibuMax;
+    if (ibuMin === undefined || ibuMax === undefined) {
+      ibuRange = 'N/A';
+    }
     var styleId = parseInt(index) + 1;
     var beerUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y&withBreweries=y';
     // Remove previous content from #styleCard
@@ -135,3 +141,16 @@ function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beer
     '</div>'
   );
 }
+
+// // Sort function
+// function sortStyles (styles) {
+//   styles.data.sort(function(a, b){
+//     if (a.name < b.name) {
+//       return -1;
+//     }
+//     if (a.name > b.name) {
+//       return 1;
+//     }
+//     return 0;
+//   });
+// }
