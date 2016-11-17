@@ -8,9 +8,10 @@ $(document).ready(function() {
 });
 
 function appendStyles(styleData) {
+  sortStyles(styleData);
   //Iterate through styleData object from GET request
   for (var i = 0; i < styleData.data.length; i++) {
-    $('#beerType').append('<option value="' + i + '">' + styleData.data[i].name + '</option>');
+    $('#beerType').append('<option value="' + styleData.data[i].id + ',' + i + '">' + styleData.data[i].name + '</option>');
   }
   //Re-initialize Select
   $('select').material_select();
@@ -18,7 +19,8 @@ function appendStyles(styleData) {
   $('#beerType').change(addStyleCard);
 
   function addStyleCard() {
-    var index = $(this).val();
+    var parts = this.value.split(',');
+    var index = parts[1];
     var name = styleData.data[index].name;
     var description = styleData.data[index].description;
     var abvMin = styleData.data[index].abvMin;
@@ -33,7 +35,7 @@ function appendStyles(styleData) {
     if (ibuMin === undefined || ibuMax === undefined) {
       ibuRange = 'N/A';
     }
-    var styleId = parseInt(index) + 1;
+    var styleId = parts[0];
     var beerUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y&withBreweries=y';
     // Remove previous content from #styleCard
     $('#styleCard').empty();
@@ -142,15 +144,15 @@ function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beer
   );
 }
 
-// // Sort function
-// function sortStyles (styles) {
-//   styles.data.sort(function(a, b){
-//     if (a.name < b.name) {
-//       return -1;
-//     }
-//     if (a.name > b.name) {
-//       return 1;
-//     }
-//     return 0;
-//   });
-// }
+// Sort function
+function sortStyles (styles) {
+  styles.data.sort(function(a, b){
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
+}
