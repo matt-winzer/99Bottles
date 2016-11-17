@@ -2,7 +2,7 @@ $(document).ready(function() {
   //Initialize Select
   $('select').material_select();
   //Store URL for styles GET request
-  var styleURL = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/styles/?key=53f372495b64d9d4e9a86e2a8ca999b4';
+  var styleURL = 'https://galvanize-cors-proxy.herokuapp.com/https://api.brewerydb.com/v2/styles/?key=53f372495b64d9d4e9a86e2a8ca999b4';
   //GET request for beer styles
   $.get(styleURL, appendStyles);
 });
@@ -36,7 +36,7 @@ function appendStyles(styleData) {
       ibuRange = 'N/A';
     }
     var styleId = parts[0];
-    var beerUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y&withBreweries=y';
+    var beerUrl = 'https://galvanize-cors-proxy.herokuapp.com/https://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y&withBreweries=y';
     // Remove previous content from #styleCard
     $('#styleCard').empty();
     // Remove previous content from #beerCards
@@ -79,7 +79,7 @@ function appendStyles(styleData) {
 //   console.log('Modal Trigger');
 //   console.log(this.id);
 //   var beerId = this.id;
-//   var beerIdUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beer/' + beerId + '/?key=53f372495b64d9d4e9a86e2a8ca999b4';
+//   var beerIdUrl = 'https://galvanize-cors-proxy.herokuapp.com/https://api.brewerydb.com/v2/beer/' + beerId + '/?key=53f372495b64d9d4e9a86e2a8ca999b4';
 //   $.get(beerIdUrl, populateModal);
 // }
 //
