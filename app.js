@@ -28,7 +28,7 @@ function appendStyles(styleData) {
     var ibuMax = styleData.data[index].ibuMax;
     var ibuRange = ibuMin + ' - ' + ibuMax;
     var styleId = parseInt(index) + 1;
-    var beerUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y';
+    var beerUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y&withBreweries=y';
     // Remove previous content from #styleCard
     $('#styleCard').empty();
     // Remove previous content from #beerCards
@@ -91,6 +91,7 @@ function addBeerCards(beerData) {
     var abv = beerData.data[i].abv;
     var ibu = beerData.data[i].ibu;
     var organic = beerData.data[i].isOrganic;
+    var brewery = beerData.data[i].breweries[0].name;
     var description = beerData.data[i].description;
     if (description === undefined) {
       description = 'No description is currently available for this beer.';
@@ -106,12 +107,12 @@ function addBeerCards(beerData) {
     } else {
       organic = 'No';
     }
-    appendBeers(img, name, id, description, abv, ibu, organic);
+    appendBeers(img, name, id, description, abv, ibu, organic, brewery);
   }
   return beerData;
 }
 
-function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beerIBU, organic) {
+function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beerIBU, organic, brewery) {
   $('#beerCards').append(
     '<div class="beer-card-container col s12 m6 l4">' +
       '<div class="card sticky-action beer-card hoverable">' +
@@ -122,9 +123,10 @@ function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beer
             '<p class="beer-name center-align truncate">' + beerName + '</p>' +
           '</div>' +
           '<div class="card-reveal">' +
-            '<span class="card-title grey-text text-darken-4">ABV: ' + beerABV + '%' + '<i class="material-icons right">close</i></span>' +
+            '<span class="card-title grey-text text-darken-4">' + brewery + '<i class="material-icons right">close</i></span>' +
             '<p>' + beerDescription + '</p>' +
             '<div class="ibu-organic-container">' +
+              '<span class="grey-text text-darken-4">ABV: ' + beerABV + '%' + '</span>' +
               '<span class="grey-text text-darken-4">IBU: ' + beerIBU + '</span>' +
               '<span class="grey-text text-darken-4">Organic: ' + organic + '</span>' +
             '</div>' +
