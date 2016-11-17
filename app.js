@@ -23,8 +23,10 @@ function appendStyles(styleData) {
     var description = styleData.data[index].description;
     var abvMin = styleData.data[index].abvMin;
     var abvMax = styleData.data[index].abvMax;
+    var abvRange = abvMin + ' - ' + abvMax;
     var ibuMin = styleData.data[index].ibuMin;
     var ibuMax = styleData.data[index].ibuMax;
+    var ibuRange = ibuMin + ' - ' + ibuMax;
     var styleId = parseInt(index) + 1;
     var beerUrl = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/beers/?key=53f372495b64d9d4e9a86e2a8ca999b4&styleId=' + styleId + '&hasLabels=y';
     // Remove previous content from #styleCard
@@ -43,9 +45,9 @@ function appendStyles(styleData) {
             '<div class="card-action grey darken-4">' +
               '<div class="valign-wrapper infoGroup">' +
                 '<img class="alcohol-image" src="img/wine-bottle-orange.png" alt="alcohol"/>' +
-                '<p class="abv-range">ABV: ' + abvMin + ' - ' + abvMax + '%</p>' +
+                '<p class="abv-range">ABV: ' + abvRange + '%</p>' +
                 '<img class="hops-image" src="img/Hops-52-Orange.png" alt="hops"/>' +
-                '<p class="ibu-range">IBU: ' + ibuMin + ' - ' + ibuMax + '</p>' +
+                '<p class="ibu-range">IBU: ' + ibuRange + '</p>' +
               '</div>' +
             '</div>' +
           '</div>' +
