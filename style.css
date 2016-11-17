@@ -101,6 +101,7 @@ p.beer-name {
   color: rgb(246, 181, 43);
 }
 
-span.card-title {
-  /*background-color: red;*/
+.ibu-organic-container {
+  display: flex;
+  justify-content: space-between;
 }

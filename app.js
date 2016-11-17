@@ -45,7 +45,7 @@ function appendStyles(styleData) {
                 '<img class="alcohol-image" src="img/wine-bottle-orange.png" alt="alcohol"/>' +
                 '<p class="abv-range">ABV: ' + abvMin + ' - ' + abvMax + '%</p>' +
                 '<img class="hops-image" src="img/Hops-52-Orange.png" alt="hops"/>' +
-                '<p class="ibu-range">IBUs: ' + ibuMin + ' - ' + ibuMax + '</p>' +
+                '<p class="ibu-range">IBU: ' + ibuMin + ' - ' + ibuMax + '</p>' +
               '</div>' +
             '</div>' +
           '</div>' +
@@ -88,16 +88,28 @@ function addBeerCards(beerData) {
     var id = beerData.data[i].id;
     var abv = beerData.data[i].abv;
     var ibu = beerData.data[i].ibu;
+    var organic = beerData.data[i].isOrganic;
     var description = beerData.data[i].description;
     if (description === undefined) {
       description = 'No description is currently available for this beer.';
     }
-    appendBeers(img, name, id, description, abv, ibu);
+    if (abv === undefined) {
+      abv = 'N/A';
+    }
+    if (ibu === undefined) {
+      ibu = 'N/A';
+    }
+    if (organic === 'Y') {
+      organic = 'Yes';
+    } else {
+      organic = 'No';
+    }
+    appendBeers(img, name, id, description, abv, ibu, organic);
   }
   return beerData;
 }
 
-function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV) {
+function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beerIBU, organic) {
   $('#beerCards').append(
     '<div class="beer-card-container col s12 m6 l4">' +
       '<div class="card sticky-action beer-card hoverable">' +
@@ -110,6 +122,10 @@ function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV) {
           '<div class="card-reveal">' +
             '<span class="card-title grey-text text-darken-4">ABV: ' + beerABV + '%' + '<i class="material-icons right">close</i></span>' +
             '<p>' + beerDescription + '</p>' +
+            '<div class="ibu-organic-container">' +
+              '<span class="grey-text text-darken-4">IBU: ' + beerIBU + '</span>' +
+              '<span class="grey-text text-darken-4">Organic: ' + organic + '</span>' +
+            '</div>' +
           '</div>' +
       '</div>' +
     '</div>'
