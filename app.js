@@ -1,8 +1,6 @@
 $(document).ready(function() {
   //Initialize Select
   $('select').material_select();
-  // Initialize modal
-  $('.modal').modal();
   //Store URL for styles GET request
   var styleURL = 'http://galvanize-cors-proxy.herokuapp.com/http://api.brewerydb.com/v2/styles/?key=53f372495b64d9d4e9a86e2a8ca999b4';
   //GET request for beer styles
@@ -57,8 +55,6 @@ function appendStyles(styleData) {
     // GET request for beer data based on value of select
     $.get(beerUrl, addBeerCards)
       .then(function(beerData) {
-        // console.log('.then chain is working');
-        // console.log(beerData);
         if (beerData.numberOfPages > 1) {
           for (var j = 2; j <= beerData.numberOfPages; j++) {
             var newUrl = beerUrl + '&p=' + j;
@@ -66,11 +62,6 @@ function appendStyles(styleData) {
           }
         }
       });
-      // .then(function(){
-      //   var $beerCards = $('.beer-card-container');
-      //   // console.log($beerCards.html());
-      //   $beerCards.click(triggerModal);
-      // });
   }
 }
 
@@ -91,11 +82,6 @@ function appendStyles(styleData) {
 // }
 
 function addBeerCards(beerData) {
-  // console.log(beerData);
-  // console.log(beerData.data.length);
-  // console.log('Number of pages: ' + beerData.numberOfPages);
-  // console.log('Current Page: ' + beerData.currentPage);
-
   for (var i = 0; i < beerData.data.length; i++) {
     var img = beerData.data[i].labels.large;
     var name = beerData.data[i].name;
@@ -111,10 +97,10 @@ function addBeerCards(beerData) {
 
 function appendBeers(beerImage, beerName, beerId, beerDescription) {
   $('#beerCards').append(
-    '<div id="' + beerId +'" class="beer-card-container col s12 m6 l4">' +
+    '<div class="beer-card-container col s12 m6 l4">' +
       '<div class="card beer-card hoverable">' +
         '<div class="card-image">' +
-          '<img class="activator" src="' + beerImage + '">' +
+          '<img id="' + beerId + '" class="activator" src="' + beerImage + '">' +
         '</div>' +
           '<div class="beer-name-container card-action grey darken-4">' +
             '<p class="beer-name center-align truncate">' + beerName + '</p>' +
