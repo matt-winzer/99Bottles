@@ -101,6 +101,6 @@ p.beer-name {
   color: rgb(246, 181, 43);
 }
 
-a {
-  display: block;
+span.card-title {
+  /*background-color: red;*/
 }

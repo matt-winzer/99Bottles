@@ -86,19 +86,21 @@ function addBeerCards(beerData) {
     var img = beerData.data[i].labels.large;
     var name = beerData.data[i].name;
     var id = beerData.data[i].id;
+    var abv = beerData.data[i].abv;
+    var ibu = beerData.data[i].ibu;
     var description = beerData.data[i].description;
     if (description === undefined) {
-
+      description = 'No description is currently available for this beer.';
     }
-    appendBeers(img, name, id, description);
+    appendBeers(img, name, id, description, abv, ibu);
   }
   return beerData;
 }
 
-function appendBeers(beerImage, beerName, beerId, beerDescription) {
+function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV) {
   $('#beerCards').append(
     '<div class="beer-card-container col s12 m6 l4">' +
-      '<div class="card beer-card hoverable">' +
+      '<div class="card sticky-action beer-card hoverable">' +
         '<div class="card-image">' +
           '<img id="' + beerId + '" class="activator" src="' + beerImage + '">' +
         '</div>' +
@@ -106,7 +108,7 @@ function appendBeers(beerImage, beerName, beerId, beerDescription) {
             '<p class="beer-name center-align truncate">' + beerName + '</p>' +
           '</div>' +
           '<div class="card-reveal">' +
-            '<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>' +
+            '<span class="card-title grey-text text-darken-4">ABV: ' + beerABV + '%' + '<i class="material-icons right">close</i></span>' +
             '<p>' + beerDescription + '</p>' +
           '</div>' +
       '</div>' +
