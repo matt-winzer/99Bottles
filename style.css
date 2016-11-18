@@ -100,10 +100,9 @@ p.beer-name {
 
 .ibu-organic-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .card-title.grey-text.text-darken-4 {
-  /*color: red !important;*/
   font-size: 1.25em;
 }

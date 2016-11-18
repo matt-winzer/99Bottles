@@ -7,6 +7,19 @@ $(document).ready(function() {
   $.get(styleURL, appendStyles);
 });
 
+// Sort function
+function sortStyles (styles) {
+  styles.data.sort(function(a, b){
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
+}
+
 function appendStyles(styleData) {
   sortStyles(styleData);
   //Iterate through styleData object from GET request
@@ -124,7 +137,7 @@ function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beer
   $('#beerCards').append(
     '<div class="beer-card-container col s12 m6 l4">' +
       '<div class="card sticky-action beer-card hoverable">' +
-        '<div class="card-image">' +
+        '<div class="card-image waves-effect waves-custom">' +
           '<img id="' + beerId + '" class="activator" src="' + beerImage + '">' +
         '</div>' +
           '<div class="beer-name-container card-action grey darken-4">' +
@@ -142,17 +155,4 @@ function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beer
       '</div>' +
     '</div>'
   );
-}
-
-// Sort function
-function sortStyles (styles) {
-  styles.data.sort(function(a, b){
-    if (a.name < b.name) {
-      return -1;
-    }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  });
 }
