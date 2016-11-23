@@ -113,6 +113,7 @@ function addBeerCards(beerData) {
     var ibu = beerData.data[i].ibu;
     var organic = beerData.data[i].isOrganic;
     var brewery = beerData.data[i].breweries[0].name;
+    var brewerySite = beerData.data[i].breweries[0].website;
     var description = beerData.data[i].description;
     if (description === undefined) {
       description = 'No description is currently available for this beer.';
@@ -128,12 +129,12 @@ function addBeerCards(beerData) {
     } else {
       organic = 'No';
     }
-    appendBeers(img, name, id, description, abv, ibu, organic, brewery);
+    appendBeers(img, name, id, description, abv, ibu, organic, brewery, brewerySite);
   }
   return beerData;
 }
 
-function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beerIBU, organic, brewery) {
+function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beerIBU, organic, brewery, website) {
   $('#beerCards').append(
     '<div class="beer-card-container col s12 m6 l4">' +
       '<div class="card sticky-action beer-card hoverable">' +
@@ -150,6 +151,7 @@ function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beer
               '<span class="grey-text text-darken-4">ABV: ' + beerABV + '%' + '</span>' +
               '<span class="grey-text text-darken-4">IBU: ' + beerIBU + '</span>' +
               '<span class="grey-text text-darken-4">Organic: ' + organic + '</span>' +
+              '<a href="' + website + '" target="_blank"><span class="grey-text text-darken-4">Brewery Website</span></a>' +
             '</div>' +
           '</div>' +
       '</div>' +
