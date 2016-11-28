@@ -151,7 +151,8 @@ function appendBeers(beerImage, beerName, beerId, beerDescription, beerABV, beer
               '<span class="grey-text text-darken-4">ABV: ' + beerABV + '%' + '</span>' +
               '<span class="grey-text text-darken-4">IBU: ' + beerIBU + '</span>' +
               '<span class="grey-text text-darken-4">Organic: ' + organic + '</span>' +
-              '<a href="' + website + '" target="_blank"><span class="grey-text text-darken-4">Brewery Website</span></a>' +
+              '<a href="' + website + '" target="_blank"><span class="brew-link grey-text text-darken-4">Brewery Website</span></a>' +
+              // '<a class="brewery-button waves-effect waves-light btn grey darken-4">Brewery Website</a>' +
             '</div>' +
           '</div>' +
       '</div>' +

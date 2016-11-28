@@ -106,3 +106,12 @@ p.beer-name {
 .card-title.grey-text.text-darken-4 {
   font-size: 1.25em;
 }
+
+a.brewery-button.waves-effect.waves-light.btn {
+  margin-top: 1em;
+  color: rgb(246, 181, 43);
+}
+
+span.brew-link.grey-text.text-darken-4 {
+  text-decoration: underline;
+}
